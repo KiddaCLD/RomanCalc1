@@ -1,0 +1,60 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:RomanCalc.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="600"
+		Height="600" Width="400"
+        x:Class="RomanCalc.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="RomanCalc">
+
+	<Design.DataContext>
+		<vm:MainWindowViewModel/>
+	</Design.DataContext>
+
+	<Grid ShowGridLines="False" RowDefinitions="10*,10*,10*,10*,10*,10*" ColumnDefinitions="20*,20*,20*,20*">
+		
+		<Button Name="buttonI" Command="{Binding ButtonClickI}" CommandParameter="I" HorizontalAlignment="Center" FontSize="45" Height="80" Width="80" Grid.Column="0" Grid.Row="2">
+			<TextBlock TextAlignment="Center" VerticalAlignment="Center" Text="I"/>
+		</Button>
+		<Button Command="{Binding ButtonClickV}" CommandParameter="V" HorizontalAlignment="Center" FontSize="45" Height="80" Width="80" Grid.Column="0" Grid.Row="3">
+			<TextBlock TextAlignment="Center" VerticalAlignment="Center" Text="V"/>
+		</Button>
+		<Button Command="{Binding ButtonClickX}" CommandParameter="X" HorizontalAlignment="Center" FontSize="45" Height="80" Width="80" Grid.Column="0" Grid.Row="4">
+			<TextBlock TextAlignment="Center" VerticalAlignment="Center" Text="X"/>
+		</Button>
+		<Button Command="{Binding ButtonClickL}" CommandParameter="L" HorizontalAlignment="Center" FontSize="45" Height="80" Width="80" Grid.Column="0" Grid.Row="5">
+			<TextBlock TextAlignment="Center" VerticalAlignment="Center" Text="L"/>
+		</Button>
+		<Button Command="{Binding ButtonClickC}" CommandParameter="C" HorizontalAlignment="Center" FontSize="45" Height="80" Width="80" Grid.Column="1" Grid.Row="2">
+			<TextBlock TextAlignment="Center" VerticalAlignment="Center" Text="C"/>
+		</Button>
+		<Button Command="{Binding ButtonClickD}" CommandParameter="D" HorizontalAlignment="Center" FontSize="45" Height="80" Width="80" Grid.Column="1" Grid.Row="3">
+			<TextBlock TextAlignment="Center" VerticalAlignment="Center" Text="D"/>
+		</Button>
+		<Button Command="{Binding ButtonClickM}" CommandParameter="M" HorizontalAlignment="Center" FontSize="45" Height="80" Width="80" Grid.Column="1" Grid.Row="4">
+			<TextBlock TextAlignment="Center" VerticalAlignment="Center" Text="M"/>
+		</Button>
+		<Button Name="ButtonClear" Command="{Binding Clear}"  CommandParameter="CE" HorizontalAlignment="Center" FontSize="45" Height="80" Width="80" Grid.Column="1" Grid.Row="5">
+			<TextBlock TextAlignment="Center" VerticalAlignment="Center" Text="CE"/>
+		</Button>
+		<Button Command="{Binding ButtonClickMathCommand}" CommandParameter="+" BorderThickness="3" HorizontalAlignment="Center" FontSize="45" Height="80" Width="80" Grid.Column="2" Grid.Row="2">
+			<TextBlock TextAlignment="Center" VerticalAlignment="Center" Text="+"/>
+		</Button>
+		<Button Command="{Binding ButtonClickMathCommand}" CommandParameter="-" BorderThickness="3" HorizontalAlignment="Center" FontSize="45" Height="80" Width="80" Grid.Column="2" Grid.Row="3">
+			<TextBlock TextAlignment="Center" VerticalAlignment="Center" Text="-"/>
+		</Button>
+		<Button  Command="{Binding ButtonClickMathCommand}" CommandParameter="*" HorizontalAlignment="Center" FontSize="45" Height="80" Width="80" Grid.Column="2" Grid.Row="4">
+			<TextBlock TextAlignment="Center" VerticalAlignment="Center" Text="*"/>
+		</Button>
+		<Button Command="{Binding ButtonClickMathCommand}" CommandParameter="/" HorizontalAlignment="Center" FontSize="45" Height="80" Width="80" Grid.Column="2" Grid.Row="5">
+			<TextBlock TextAlignment="Center" VerticalAlignment="Center" Text="/"/>
+		</Button>
+		<Button Command="{Binding OnClickButtonEquale}" CommandParameter="=" HorizontalAlignment="Center" FontSize="50" Height="380" Width="80" Grid.Column="4" Grid.Row="2" Grid.RowSpan="4">
+			<TextBlock TextAlignment="Center" VerticalAlignment="Center" Text="="/>
+		</Button>
+		<TextBlock Text="{Binding ButtonText}" TextWrapping="NoWrap" FontSize="50" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Height="80" Width="340"  Name="textInput" ></TextBlock>
+		<TextBlock Text="{Binding DisplayText}"  FontSize="50" Grid.Column="0" TextWrapping="NoWrap" Grid.Row="1" Grid.ColumnSpan="4" Height="80" Width="340"></TextBlock>
+	</Grid>
+</Window>
